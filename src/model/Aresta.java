@@ -9,13 +9,17 @@ public class Aresta {
     private long v1;            //vertice 1
     private long v2;            //vertice 2
     private long peso;          //peso da aresta
-    private long floresta;      //grupo que a aresta se encontra
+    private int floresta;       //grupo que a aresta se encontra
 
-    public Aresta(long v1, long v2, long peso, long floresta) {
+    public Aresta(long v1, long v2, long peso, int floresta) {
         this.v1 = v1;
         this.v2 = v2;
         this.peso = peso;
         this.floresta = floresta;
+    }
+
+    public Aresta() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public long getV1() {
@@ -30,7 +34,7 @@ public class Aresta {
         return peso;
     }
 
-    public long getFloresta() {
+    public int getFloresta() {
         return floresta;
     }
 
@@ -47,7 +51,7 @@ public class Aresta {
         this.peso = peso;
     }
 
-    public void setFloresta(long floresta) {
+    public void setFloresta(int floresta) {
         this.floresta = floresta;
     }
     
