@@ -3,6 +3,7 @@ package algoritmosgulosos;
 
 import infra.Arquivo;
 import java.io.IOException;
+import java.util.List;
 import model.Aresta;
 
 /**
@@ -17,9 +18,11 @@ public class AlgoritmosGulosos {
     public static void main(String[] args) throws IOException 
     {
         Arquivo arquivo = new Arquivo("..\\AlgoritmosGulosos\\dij10.txt");
-        Aresta [] list = arquivo.carregarMST();
-        for(int i = 0; i<list.length; i++)
-            System.out.println(list[i].getPeso());
+        List <Aresta> list = arquivo.carregarMST();
+        for(int i = 1; i<list.size(); i++)
+        {
+            System.out.println(list.get(i).getPeso());
+        }
     }
     
 }
