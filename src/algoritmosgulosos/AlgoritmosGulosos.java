@@ -21,7 +21,9 @@ public class AlgoritmosGulosos {
         List <Aresta> list = arquivo.carregarMST();
         for(int i = 1; i<list.size(); i++)
         {
-            System.out.println(list.get(i).getPeso());
+            System.out.println( "(" + list.get(i).getV1() + ")" + 
+                                "______" + list.get(i).getPeso() + "______" + 
+                                "(" + list.get(i).getV2() + ")" );
         }
     }
     
