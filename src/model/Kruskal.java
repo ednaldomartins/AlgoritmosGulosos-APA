@@ -4,6 +4,8 @@ package model;
 import java.util.List;
 
 import util.AlgoritmoGuloso;
+import util.AlgoritmoOrdenacao;
+import util.FuncoesVetor;
 
 /*******************************************************************************
  * @author Ednaldo                                                             *
@@ -12,11 +14,16 @@ import util.AlgoritmoGuloso;
 public class Kruskal implements AlgoritmoGuloso{
 
     @Override
-    public long[] gerarMST(List<Aresta> listaAresta) 
+    public Aresta [] gerarMST(Aresta [] vetorAresta, int tamanhoVetor, int numeroVertices) 
     {
-        long mst [] = new long [ (int) listaAresta.get(0).getPeso() ];
-        
-        //codigo
+        Aresta [] mst = new Aresta[numeroVertices];
+        //usando InsertionSort para ordenar Vetor nao descrescente
+        AlgoritmoOrdenacao.ordenar(vetorAresta);
+        //gerar MST
+        for(int loop = 0; loop < tamanhoVetor; loop++)
+        {   //printando vetor ordenado
+            System.out.println(vetorAresta[loop].getPeso());
+        }
         
         return mst;
     }
