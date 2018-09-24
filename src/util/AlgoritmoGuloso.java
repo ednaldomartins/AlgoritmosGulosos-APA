@@ -10,5 +10,5 @@ import model.Aresta;
  *  date: 23.09.2018                                                           *
  ******************************************************************************/
 public interface AlgoritmoGuloso {
-    public long [] gerarMST (List <Aresta> listaAresta);
+    public Aresta [] gerarMST (List <Aresta> listaAresta);
 }
