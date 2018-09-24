@@ -1,10 +1,10 @@
 
 package model;
 
-/**
- * @author Ednaldo
- *  date: 22.09.2018
- */
+/*******************************************************************************
+ * @author Ednaldo                                                             *
+ *  date: 22.09.2018                                                           *
+ ******************************************************************************/
 public class Aresta {
     private long v1;            //vertice 1
     private long v2;            //vertice 2
@@ -18,9 +18,7 @@ public class Aresta {
         this.floresta = floresta;
     }
 
-    public Aresta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public Aresta() { }
 
     public long getV1() {
         return v1;
@@ -54,8 +52,5 @@ public class Aresta {
     public void setFloresta(int floresta) {
         this.floresta = floresta;
     }
-    
-    
-    
     
 }
