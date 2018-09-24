@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Aresta;
+import util.AlgoritmoGuloso;
+import util.FuncoesVetor;
 
 /*******************************************************************************
  * @author Ednaldo                                                             *
@@ -15,12 +17,26 @@ import model.Aresta;
 public class ControllerMST 
 {
     private final List <Aresta> listaAresta;
-    private final String ARQUIVO_ORIGEM = "..\\AlgoritmosDeOrdenacao\\listaDesordenada.txt";
+    private final String ARQUIVO_ORIGEM = "..\\AlgoritmosGulosos\\dij10.txt";
 
     public ControllerMST() {
         this.listaAresta = carregarListaArquivo();
     }
 
+    public void controleMST(AlgoritmoGuloso algoritmoGuloso) 
+    {
+        //tamanho da lista de combinacoes de vestices(arestas), e numero de vertices
+        int numeroVertices = (int) listaAresta.get(0).getPeso();
+        int tamanhoLista = listaAresta.size()-1;
+        //copiando Array para trabalhar com Vetor
+        Aresta vetorAresta [] = new Aresta [ tamanhoLista ];
+        FuncoesVetor.copiarLista(listaAresta, vetorAresta);
+        //criando e recuperando MST
+        Aresta [] arvoreGeradora = new Aresta[ numeroVertices ];
+        arvoreGeradora = algoritmoGuloso.gerarMST(vetorAresta, vetorAresta.length, numeroVertices);
+        
+        int i = 0;
+    }
     
     private List<Aresta> carregarListaArquivo() 
     {
@@ -29,4 +45,6 @@ public class ControllerMST
         } catch (IOException ex) { Logger.getLogger(ControllerMST.class.getName()).log(Level.SEVERE, null, ex); }
         return null;
     }
+
+    
 }
