@@ -18,10 +18,25 @@ public class FuncoesVetor {
     }
     
     public static void copiarLista ( List <Aresta> original, Aresta [] copia )
-    {
-        copia = new Aresta[original.size()];
-        for(int i = 0; i < copia.length; i++)
-            copia[i] = original.get(i);
+    {   //a posicao 0 guarda o numero de vertices
+        if(copia.length >= original.size()-1)
+        {
+            for(int i = 0; i < copia.length; i++)
+                copia[i] = original.get(i+1);
+        }
+        else
+            System.err.println("Nao foi possivel copiar o array original, pois o array orginal eh maior do que o vetor copia");
+    }
+    
+    public static void copiarLista ( Aresta [] original, Aresta [] copia )
+    {   
+        if(copia.length >= original.length)
+        {
+            for(int i = 0; i < copia.length; i++)
+                copia[i] = original[i];
+        }
+        else
+            System.err.println("Nao foi possivel copiar o array original, pois o array orginal eh maior do que o vetor copia");
     }
 
 }
