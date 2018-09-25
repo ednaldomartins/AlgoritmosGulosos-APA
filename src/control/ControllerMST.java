@@ -18,7 +18,8 @@ public class ControllerMST
 {
     private final List <Aresta> listaAresta;
     private final String ARQUIVO_ORIGEM = "..\\AlgoritmosGulosos\\dij10.txt";
-
+    private Aresta [] arvoreGeradora;
+            
     public ControllerMST() {
         this.listaAresta = carregarListaArquivo();
     }
@@ -32,10 +33,8 @@ public class ControllerMST
         Aresta vetorAresta [] = new Aresta [ tamanhoLista ];
         FuncoesVetor.copiarLista(listaAresta, vetorAresta);
         //criando e recuperando MST
-        Aresta [] arvoreGeradora = new Aresta[ numeroVertices ];
-        arvoreGeradora = algoritmoGuloso.gerarMST(vetorAresta, vetorAresta.length, numeroVertices);
-        
-        int i = 0;
+        arvoreGeradora = new Aresta[ numeroVertices-1 ];
+        algoritmoGuloso.gerarMST(vetorAresta, arvoreGeradora, vetorAresta.length, numeroVertices);
     }
     
     private List<Aresta> carregarListaArquivo() 
