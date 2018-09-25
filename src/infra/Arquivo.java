@@ -29,6 +29,10 @@ public class Arquivo
     
     /***************************************************************************
      * MST: Minimum Soanning Tree                                              *
+     *      Note que o primeiro elemento a ser recuperado da lista eh o        *
+     *  numero de vertices da lista, e ele estarah ligando os vertices 0 e 1,  *
+     *  que no fim das contas serah descartado, restando apenas o tamanho.     *
+     *      A numeracao dos vertices se darah a partir do vertice 1 em diante  *
      * i: primeiro vertice                                                     *
      * j: segundo vertice                                                      *
      * k: valor do peso da aresta que estah ligando os vertice 'i' e 'j'       *
@@ -42,7 +46,7 @@ public class Arquivo
         {
             String line = null;
             for(int i = 0; (line = reader.readLine()) != null; i++) 
-            {
+            {   
                 String[] parametro = line.split(" ");
                 for(int j = i+1, k = 0; k < parametro.length; k++, j++)
                     listaPesoAresta.add(   new Aresta(i, j, Long.parseLong(parametro[k]), 0 )   );
