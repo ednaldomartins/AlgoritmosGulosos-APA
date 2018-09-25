@@ -27,16 +27,5 @@ public class FuncoesVetor {
         else
             System.err.println("Nao foi possivel copiar o array original, pois o array orginal eh maior do que o vetor copia");
     }
-    
-    public static void copiarLista ( Aresta [] original, Aresta [] copia )
-    {   
-        if(copia.length >= original.length)
-        {
-            for(int i = 0; i < copia.length; i++)
-                copia[i] = original[i];
-        }
-        else
-            System.err.println("Nao foi possivel copiar o array original, pois o array orginal eh maior do que o vetor copia");
-    }
 
 }
