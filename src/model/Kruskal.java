@@ -20,13 +20,10 @@ public class Kruskal implements AlgoritmoGuloso{
         //gerar MST
         //apontador diz ateh qual posicao a mst[]  foi preenchida
         mst[0] = vetorAresta[0];
-        int numeroFloresta = 0;
+        int numeroFloresta = 1;
         mst[0].setFloresta(numeroFloresta);
-        for(int loop = 0, apontador = 0; ( loop < tamanhoVetor && apontador < mst.length-1 ); loop++)
-        {   //printando vetor ordenado
-            System.out.println(vetorAresta[loop].getPeso());
-            
-            //ENXUGAR O CODIGO
+        for(int loop = 1, apontador = 0; ( loop < tamanhoVetor && apontador < mst.length-1 ); loop++)
+        {   //ENXUGAR O CODIGO
             int florestaV1 = 0, florestaV2 = 0;
             for(int i = 0; i <= apontador ; i++)
             {   //pela logica tanto v1, quanto v2 da mst[i] tem a mesma floresta
