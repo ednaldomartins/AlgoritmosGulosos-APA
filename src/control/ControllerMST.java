@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import model.Aresta;
 import util.AlgoritmoGuloso;
 import util.FuncoesVetor;
+import util.Print;
 
 /*******************************************************************************
  * @author Ednaldo                                                             *
@@ -36,7 +37,7 @@ public class ControllerMST
         arvoreGeradora = new Aresta[ numeroVertices-1 ];
         algoritmoGuloso.gerarMST(vetorAresta, arvoreGeradora, vetorAresta.length, numeroVertices);
     }
-    
+     
     private List<Aresta> carregarListaArquivo() 
     {
         try {
@@ -46,4 +47,19 @@ public class ControllerMST
     }
 
     
+    public void printLista ()
+    {
+        Print.printLista(listaAresta);
+    }
+    
+    public void printMST ()
+    {
+        Print.printMST(arvoreGeradora);
+    }
+    
+    public void printResultadoMST ()
+    {
+        Print.printResultadoMST(arvoreGeradora);
+    }
+   
 }
