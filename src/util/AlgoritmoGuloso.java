@@ -10,5 +10,5 @@ import model.Aresta;
  *  date: 23.09.2018                                                           *
  ******************************************************************************/
 public interface AlgoritmoGuloso {
-    public Aresta [] gerarMST (Aresta [] vetorAresta, int tamanhoVetor, int numeroVertices);
+    public Aresta [] gerarMST (Aresta [] vetorAresta, Aresta [] arvoreGeradora, int tamanhoVetor, int numeroVertices);
 }
