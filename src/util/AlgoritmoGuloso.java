@@ -1,8 +1,6 @@
 
 package util;
 
-import java.util.List;
-
 import model.Aresta;
 
 /*******************************************************************************
@@ -10,5 +8,5 @@ import model.Aresta;
  *  date: 23.09.2018                                                           *
  ******************************************************************************/
 public interface AlgoritmoGuloso {
-    public Aresta [] gerarMST (Aresta [] vetorAresta, Aresta [] arvoreGeradora, int tamanhoVetor, int numeroVertices);
+    public void gerarMST (Aresta [] vetorAresta, Aresta [] arvoreGeradora, int tamanhoVetor);
 }
