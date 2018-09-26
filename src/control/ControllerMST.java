@@ -33,9 +33,9 @@ public class ControllerMST
         //copiando Array para trabalhar com Vetor
         Aresta vetorAresta [] = new Aresta [ tamanhoLista ];
         FuncoesVetor.copiarLista(listaAresta, vetorAresta);
-        //criando e recuperando MST
+        //criando e recuperando MST (numero de Arestas = numero Vertices - 1)
         arvoreGeradora = new Aresta[ numeroVertices-1 ];
-        algoritmoGuloso.gerarMST(vetorAresta, arvoreGeradora, vetorAresta.length, numeroVertices);
+        algoritmoGuloso.gerarMST(vetorAresta, arvoreGeradora, vetorAresta.length);
     }
      
     private List<Aresta> carregarListaArquivo() 
