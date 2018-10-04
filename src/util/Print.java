@@ -23,6 +23,17 @@ public class Print
         }
     }
     
+    public static void printMatriz (Aresta[][] matriz)
+    {
+        System.out.println("Matriz de Aresta. Tamanho: " + matriz.length + "\n");
+        for(int i = 0; i < matriz.length; i++)
+        {
+            for(int j = 0; j < matriz.length; j++)
+                System.out.print( " " + matriz[i][j].getPeso());
+            System.out.println();
+        }
+    }
+    
     public static void printMST (Aresta [] mst)
     {
         System.out.println("MST. Tamanho: " + mst.length);
