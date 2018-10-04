@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import model.Aresta;
+import util.FuncoesVetor;
 
 /*******************************************************************************
  * @author Ednaldo                                                             *
@@ -26,7 +27,11 @@ public class Arquivo
     {
         this.loadPath = Paths.get(loadPath);
     }
-    
+    /*
+    usar uma metodologia diferente na leitura do arquivo futuramente
+    por exemplo: 1_34_8, que quer dizer que o vertice1 estah ligado ao vertice8
+    atraves de uma aresta de peso 34
+    */
     /***************************************************************************
      * MST: Minimum Soanning Tree                                              *
      *      Note que o primeiro elemento a ser recuperado da lista eh o        *
@@ -39,7 +44,7 @@ public class Arquivo
      * @return arvore                                                          *
      * @throws IOException                                                     *
      **************************************************************************/
-    public List <Aresta> carregarMST() throws IOException 
+    public List<Aresta> carregarMST() throws IOException 
     {
         List<Aresta> listaPesoAresta = new ArrayList<>();
         try (BufferedReader reader = Files.newBufferedReader(loadPath, utf8))
@@ -58,6 +63,30 @@ public class Arquivo
         catch(IOException ex) {System.err.println("Erro de leitura");}
         
         return listaPesoAresta;
+    }
+    
+    public Aresta [][] carregarMatrizMST() throws IOException 
+    {
+        Aresta [][] matriz = null;
+        try (BufferedReader reader = Files.newBufferedReader(loadPath, utf8))
+        {
+            String line = null;
+            int tamanhoMatriz = Integer.parseInt( reader.readLine() );
+            matriz = new Aresta[tamanhoMatriz][tamanhoMatriz];
+            FuncoesVetor.iniciarMatriz(matriz);
+            for(int i = 0; (line = reader.readLine()) != null; i++) 
+            {   
+                String[] parametro = line.split(" ");
+                for(int j = i+1, k = 0; k < parametro.length; k++, j++)
+                    matriz[i][j] =  new Aresta( Long.parseLong(parametro[k]), 0 );
+            }
+            reader.close();         
+        }
+        catch(FileNotFoundException ex) {System.err.println("Arquivo não encontrado");}
+        catch(NumberFormatException ex) {System.err.println("Erro de formato de numeros");}
+        catch(IOException ex) {System.err.println("Erro de leitura");}
+            
+        return matriz;
     }
     
 }
