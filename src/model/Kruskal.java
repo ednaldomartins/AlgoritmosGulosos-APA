@@ -77,36 +77,34 @@ public class Kruskal implements AlgoritmoGuloso
                 essa aresta deve ser ignorada para nao criar ciclo fechado entre
                 vertices pertencentes a mesma floresta
                 */
-                if(florestaV1 == 0 && florestaV2 == 0)
-                {   //aresta em nova floresta
-                    apontador++;
-                    numeroFloresta++;   
-                    unir(vetorAresta, mst, numeroFloresta, apontador, loop);
+                if(florestaV1 == florestaV2)
+                {   
+                    if(florestaV1 == 0 )//ou florestaV2 == 0
+                    {
+                        //aresta em nova floresta
+                        apontador++;
+                        numeroFloresta++;   
+                        unir(vetorAresta, mst, numeroFloresta, apontador, loop);
+                    }//else: entao fazem parte de uma mesma floresta ja existente 
                 }
                 else 
                 {    
-                    if(florestaV1 != 0 && florestaV2 == 0)
-                    {   //aresta conecta com floresta do vertice1
-                        apontador++;
+                    apontador++;
+                    //aresta conecta com floresta do vertice1
+                    if(florestaV2 == 0)
                         unir(vetorAresta, mst, florestaV1, apontador, loop);
-                    }
-                    else if(florestaV1 == 0 && florestaV2 != 0)
-                    {   //aresta conecta com floresta do vertice2
-                        apontador++;
+                    //aresta conecta com floresta do vertice2
+                    else if(florestaV1 == 0)
                         unir(vetorAresta, mst, florestaV2, apontador, loop);
-                    }
-                    //se chegou ateh aqui, entao ambos sao diferente de 0
-                    else if(florestaV1 != florestaV2)
+                    else//if(florestaV1 != florestaV2) e tambem diferente de 0
                     {   //como sao diferentes diferetes, entao
-                        for(int j = 0; j <= apontador; j++)
+                        for(int j = 0; j < apontador; j++)
                         {   //unir as duas florestas setando o mesmo valor 
                             if(mst[j].getFloresta() == florestaV2)
                                 mst[j].setFloresta(florestaV1);
                         }   //eu preferi por manter a floresta do vertice1
-                        apontador++;
                         unir(vetorAresta, mst, florestaV1, apontador, loop);
                     } 
-                //se nao entrou em nenhum if, entao a uniao causaria um ciclo
                 }
             }//fim do loop
         }//fim do if
