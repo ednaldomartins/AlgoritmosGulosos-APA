@@ -18,11 +18,13 @@ import util.Print;
 public class ControllerMST 
 {
     private final List <Aresta> listaAresta;
+    private final Aresta[][] matrizAresta;
     private final String ARQUIVO_ORIGEM = "..\\AlgoritmosGulosos\\dij10.txt";
     private Aresta [] arvoreGeradora;
             
     public ControllerMST() {
         this.listaAresta = carregarListaArquivo();
+        this.matrizAresta = carregarMatrizArquivo();
     }
 
     public void controleMST(AlgoritmoGuloso algoritmoGuloso) 
@@ -46,10 +48,22 @@ public class ControllerMST
         return null;
     }
 
+    private Aresta[][] carregarMatrizArquivo() 
+    {
+        try {
+            return new Arquivo(ARQUIVO_ORIGEM).carregarMatrizMST();
+        } catch (IOException ex) { Logger.getLogger(ControllerMST.class.getName()).log(Level.SEVERE, null, ex); }
+        return null;
+    }
     
     public void printLista ()
     {
         Print.printLista(listaAresta);
+    }
+    
+    public void printMatriz ()
+    {
+        Print.printMatriz(matrizAresta);
     }
     
     public void printMST ()
