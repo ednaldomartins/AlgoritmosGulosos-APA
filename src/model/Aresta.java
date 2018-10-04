@@ -12,8 +12,12 @@ public class Aresta {
     private int floresta;       //grupo que a aresta se encontra
 
     public Aresta(long v1, long v2, long peso, int floresta) {
+        this(peso, floresta);
         this.v1 = v1;
         this.v2 = v2;
+    }
+    
+    public Aresta(long peso, int floresta) {
         this.peso = peso;
         this.floresta = floresta;
     }
