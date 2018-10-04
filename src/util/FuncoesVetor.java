@@ -27,5 +27,12 @@ public class FuncoesVetor {
         else
             System.err.println("Nao foi possivel copiar o array original, pois o array orginal eh maior do que o vetor copia");
     }
+    
+    public static void iniciarMatriz(Aresta[][] matriz)
+    {
+        for(int i = 0; i < matriz.length; i++)
+            for(int j = 0; j < matriz.length; j++)
+                matriz[i][j] =  new Aresta( 0,0,0,0 );
+    }
 
 }
