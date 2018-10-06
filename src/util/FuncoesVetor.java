@@ -35,4 +35,9 @@ public class FuncoesVetor {
                 matriz[i][j] =  new Aresta( 0,0,0,0 );
     }
 
+    public static void iniciarVetor(Aresta[] vetor)
+    {
+        for(int i = 0; i < vetor.length; i++)
+            vetor[i] = new Aresta( Long.MAX_VALUE, 0 );
+    }
 }
