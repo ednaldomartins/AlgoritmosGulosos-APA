@@ -15,13 +15,15 @@ public class AlgoritmosGulosos {
     public static void main(String[] args) 
     {  
         ControllerMST control = new ControllerMST();
-        control.printLista();
+        control.printMatriz();
         Scanner entrada = new Scanner(System.in);
         int opcao;
         do{
             System.out.println("Escolha a Opcao abaixo: \n"
                     + "1. Kruskal \n"
                     + "2. Prim \n"
+                    + "3. Visualizar Matriz \n"
+                    + "4. Visualizar Resultado \n"
                     + "0. Sair \n");
             switch( opcao = entrada.nextInt() ) {
                 case 1:
@@ -29,12 +31,21 @@ public class AlgoritmosGulosos {
                     control.printMST();
                     control.printResultadoMST();
                     break;
+                    
                 case 2:
                     control.controleMST( new Prim() );
                     control.printMST();
                     control.printResultadoMST();
                     break;
-               
+                    
+                case 3:
+                    control.printMatriz();
+                    break;
+                    
+                case 4:
+                    control.printResultadoMST();
+                    break;
+                    
                 case 0:
                     return;
 
