@@ -78,7 +78,10 @@ public class Arquivo
             {   
                 String[] parametro = line.split(" ");
                 for(int j = i+1, k = 0; k < parametro.length; k++, j++)
+                {
                     matriz[i][j] =  new Aresta( Long.parseLong(parametro[k]), 0 );
+                    matriz[j][i] =  new Aresta( Long.parseLong(parametro[k]), 0 );
+                }
             }
             reader.close();         
         }
