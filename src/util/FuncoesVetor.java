@@ -28,6 +28,21 @@ public class FuncoesVetor {
             System.err.println("Nao foi possivel copiar o array original, pois o array orginal eh maior do que o vetor copia");
     }
     
+    //copiar apenas um lado da matriz para um novo vetor 
+    public static void copiarMatriz ( Aresta[][] matriz, Aresta [] vetor)
+    {
+        int k = 0;
+        for(int i = 0; i < matriz.length; i++)
+            for(int j = i+1; j < matriz.length; j++)
+                vetor[k++] =  matriz[i][j];
+    }
+    
+    public static void iniciarVetor(Aresta[] vetor)
+    {
+        for(int i = 0; i < vetor.length; i++)
+            vetor[i] = new Aresta( Long.MAX_VALUE, 0 );
+    }
+    
     public static void iniciarMatriz(Aresta[][] matriz)
     {
         for(int i = 0; i < matriz.length; i++)
@@ -35,9 +50,14 @@ public class FuncoesVetor {
                 matriz[i][j] =  new Aresta( 0,0,0,0 );
     }
 
-    public static void iniciarVetor(Aresta[] vetor)
+    public static int tamanhoLadoMatriz (Aresta [][] matriz)
     {
-        for(int i = 0; i < vetor.length; i++)
-            vetor[i] = new Aresta( Long.MAX_VALUE, 0 );
+        int k = 0;
+        for(int i = 0; i < matriz.length; i++)
+            for(int j = i+1; j < matriz.length; j++)
+                if(matriz[i][j].getPeso() != 0)
+                    k++;
+        return k;
     }
+    
 }
