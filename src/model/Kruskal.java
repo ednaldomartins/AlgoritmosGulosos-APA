@@ -3,6 +3,7 @@ package model;
 
 import util.AlgoritmoGuloso;
 import util.AlgoritmoOrdenacao;
+import util.FuncoesVetor;
 
 /*******************************************************************************
  * @author Ednaldo                                                             *
@@ -14,28 +15,31 @@ public class Kruskal implements AlgoritmoGuloso
      * gerarMST de Kruskal deve ordenar a lista, de forma nao decrescente      *
      * e verificar a cada interacao do for, se a nova aresta deve ou nao       *
      * conectar os 2 vertices, seguindo os críterios do algoritmo.             *
-     * @param vetorAresta                                                      *
+     * @param matrizAresta                                                      *
      * @param mst                                                              *
      * @param tamanhoVetor                                                     *
      **************************************************************************/
     @Override
-    public void gerarMST(Aresta [] vetorAresta, Aresta [] mst, int tamanhoVetor) 
+    public void gerarMST(Aresta[][] matrizAresta, Aresta[] mst, int tamanhoVetor)
     {
         //verificando se o existe uma arvore para garantir que funcione corretamente
-        if(vetorAresta != null && tamanhoVetor > 0)
+        if(matrizAresta != null && tamanhoVetor > 0)
         {
-            //Ordenando o vetor de arestas de forma nao decrescente
+            //criando e ordenando o vetor de arestas de forma nao decrescente
+            Aresta[] vetorAresta = new Aresta[ FuncoesVetor.tamanhoLadoMatriz(matrizAresta) ];
+            FuncoesVetor.iniciarVetor(vetorAresta);
+            FuncoesVetor.copiarMatriz(matrizAresta, vetorAresta);
             AlgoritmoOrdenacao.ordenar(vetorAresta);
             //Gerar MST. Apontador diz ateh qual posicao a mst[]  foi preenchida
             int numeroFloresta = 1;
-            mst[0] = vetorAresta[0];
-            mst[0].setFloresta(numeroFloresta);
+            //mst[0] = vetorAresta[0];
+            mst[0] = new Aresta( -1, vetorAresta[0].getV1(), 0, numeroFloresta);
+            //mst[0].setFloresta(numeroFloresta);
             //loop comeca em 1, pois o primeiro elemento ja foi inserido na MST
-            for(int loop = 1, apontador = 0; ( loop < tamanhoVetor && apontador < mst.length-1 ); loop++)
+            for(int loop = 0, apontador = 0; ( loop < vetorAresta.length && apontador <= mst.length ); loop++)
             {   
                 //variaveis para verificar se a aresta deve ser inserida ou nao
                 int florestaV1 = 0, florestaV2 = 0;
-                
                 //os 2 for devem buscar nos vetores, vertices conectados
                 for(int i = 0; i <= apontador ; i++)
                 {   //pela logica tanto v1, quanto v2 da mst[i], tem a mesma floresta
@@ -108,7 +112,7 @@ public class Kruskal implements AlgoritmoGuloso
                 }
             }//fim do loop
         }//fim do if
-    }//fim do metodo
+    }
     
     private void unir(Aresta [] vetorAresta, Aresta [] mst, int numFloresta, int apontador, int loop)
     {
