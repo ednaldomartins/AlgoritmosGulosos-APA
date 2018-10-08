@@ -20,7 +20,7 @@ public class Kruskal implements AlgoritmoGuloso
      * @param tamanhoVetor                                                     *
      **************************************************************************/
     @Override
-    public void gerarMST(Aresta[][] matrizAresta, Aresta[] mst, int tamanhoVetor)
+    public void gerarSolucaoSubOtima(Aresta[][] matrizAresta, Aresta[] mst, int tamanhoVetor)
     {
         //verificando se o existe uma arvore para garantir que funcione corretamente
         if(matrizAresta != null && tamanhoVetor > 0)
