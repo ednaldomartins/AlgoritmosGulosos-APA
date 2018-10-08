@@ -37,7 +37,7 @@ public class ControllerMST
         FuncoesVetor.copiarLista(listaAresta, vetorAresta);
         //criando e recuperando MST (numero de Arestas = numero Vertices - 1)
         arvoreGeradora = new Aresta[ numeroVertices ];
-        algoritmoGuloso.gerarMST(matrizAresta, arvoreGeradora, matrizAresta.length);
+        algoritmoGuloso.gerarSolucaoSubOtima(matrizAresta, arvoreGeradora, matrizAresta.length);
     }
      
     private List<Aresta> carregarListaArquivo() 
