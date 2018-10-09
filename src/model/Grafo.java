@@ -48,10 +48,10 @@ public class Grafo {
         vetor[k] = new Aresta(i, j, matriz[i][j].getPeso(), 1);
     }
     
-    boolean isFull (Aresta[] vetorMST)
+    boolean isFull (Aresta[] vetor)
     {
-        for(int i = 0; i < vetorMST.length; i++)
-            if(vetorMST[i].getFloresta() == 0)
+        for(int i = 0; i < vetor.length; i++)
+            if(vetor[i].getFloresta() == 0)
                 return false;
         return true;
     }
