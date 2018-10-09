@@ -1,11 +1,12 @@
 
 package control;
 
-import infra.Arquivo;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import infra.Arquivo;
 import model.Aresta;
 import util.AlgoritmoGuloso;
 import util.FuncoesVetor;
@@ -20,7 +21,7 @@ public class ControllerMST
     private final List <Aresta> listaAresta;
     private final Aresta[][] matrizAresta;
     private final String ARQUIVO_ORIGEM = "..\\AlgoritmosGulosos\\dij10.txt";
-    private Aresta [] arvoreGeradora;
+    private Aresta [] arvoreMinima;
             
     public ControllerMST() {
         this.listaAresta = carregarListaArquivo();
@@ -36,8 +37,8 @@ public class ControllerMST
         Aresta vetorAresta [] = new Aresta [ tamanhoLista ];
         FuncoesVetor.copiarLista(listaAresta, vetorAresta);
         //criando e recuperando MST (numero de Arestas = numero Vertices - 1)
-        arvoreGeradora = new Aresta[ numeroVertices ];
-        algoritmoGuloso.gerarSolucaoSubOtima(matrizAresta, arvoreGeradora, matrizAresta.length);
+        arvoreMinima = new Aresta[ numeroVertices ];
+        algoritmoGuloso.gerarSolucaoSubOtima(matrizAresta, arvoreMinima, matrizAresta.length);
     }
      
     private List<Aresta> carregarListaArquivo() 
@@ -68,12 +69,12 @@ public class ControllerMST
     
     public void printMST ()
     {
-        Print.printMST(arvoreGeradora);
+        Print.printMST(arvoreMinima);
     }
     
     public void printResultadoMST ()
     {
-        Print.printResultadoMST(arvoreGeradora);
+        Print.printResultadoMST(arvoreMinima);
     }
    
 }
