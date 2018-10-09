@@ -1,8 +1,10 @@
 
 package algoritmosgulosos;
 
-import control.ControllerMST;
 import java.util.Scanner;
+
+import control.ControllerMST;
+import model.Dijkstra;
 import model.Kruskal;
 import model.Prim;
 
@@ -22,8 +24,9 @@ public class AlgoritmosGulosos {
             System.out.println("Escolha a Opcao abaixo: \n"
                     + "1. Kruskal \n"
                     + "2. Prim \n"
-                    + "3. Visualizar Matriz \n"
-                    + "4. Visualizar Resultado \n"
+                    + "3. Dijkstra \n"
+                    + "4. Visualizar Matriz \n"
+                    + "5. Visualizar Resultado \n"
                     + "0. Sair \n");
             switch( opcao = entrada.nextInt() ) {
                 case 1:
@@ -39,10 +42,15 @@ public class AlgoritmosGulosos {
                     break;
                     
                 case 3:
+                    control.controleMST( new Dijkstra() );
+                    control.printMST();
+                    control.printResultadoMST();
+                    break;
+                case 4:
                     control.printMatriz();
                     break;
                     
-                case 4:
+                case 5:
                     control.printResultadoMST();
                     break;
                     
