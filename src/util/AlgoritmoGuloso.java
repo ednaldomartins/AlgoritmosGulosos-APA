@@ -9,5 +9,5 @@ import model.Aresta;
  ******************************************************************************/
 public interface AlgoritmoGuloso 
 {
-    public void gerarSolucaoSubOtima (Aresta [][] matrizAresta, Aresta [] arvoreGeradora, int tamanhoVetor);
+    public void gerarSolucaoSubOtima (Aresta [][] matrizAresta, Aresta [] arvoreMinima, int tamanhoMatriz);
 }
